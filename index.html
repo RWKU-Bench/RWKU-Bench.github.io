@@ -382,31 +382,7 @@ Specifically, we collect relevant passages about each unlearning target from the
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">EasyInstruct 演示</h2>
-    <div id="easyinstruct-container"></div>
-  </div>
-</section>
 
-<script type="module">
-  import { client } from "@gradio/client";
-
-const response_0 = await fetch("https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf");
-const exampleFile = await response_0.blob();
-						
-const app = await client("https://zjunlp-easyinstruct.hf.space/--replicas/tyme3/");
-const result = await app.predict("/generate", [
-				exampleFile, 	// blob in 'Seed Data' File component		
-				"Hello!!", // string  in 'OpenAI API Key' Textbox component		
-				"gpt-3.5-turbo-instruct", // string  in 'Engine' Dropdown component		
-				"Self-Instruct", // string  in 'Generators' Dropdown component		
-				5, // number (numeric value between 5 and 100) in 'Generation Number' Slider component
-	]);
-
-console.log(result.data);
-
-</script>
 
 <section class="section">
   <div class="container is-max-desktop">
