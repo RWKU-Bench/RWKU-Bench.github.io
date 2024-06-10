@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Benchmarking Real-World Knowledge Unlearning in Large Language Models.">
-  <meta name="keywords" content="RWKU, Benchmark, Large Language Models">
+        content="Benchmarking Real-World Knowledge Unlearning for Large Language Models.">
+  <meta name="keywords" content="RWKU, Benchmark, Knowledge Unlearning, Large Language Models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RWKU: Benchmarking Real-World Knowledge Unlearning in Large Language Models</title>
+  <title>RWKU: Benchmarking Real-World Knowledge Unlearning for Large Language Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -95,7 +95,7 @@
         <div class="column has-text-centered">
           <!-- 添加图片 -->
           <img src="./static/images/logo.png" alt="Logo" style="max-width: 280px; margin-bottom: 40px;">
-          <h1 class="title is-1 publication-title">RWKU: Benchmarking Real-World Knowledge Unlearning in Large Language Models</h1>
+          <h1 class="title is-1 publication-title">RWKU: Benchmarking Real-World Knowledge Unlearning for Large Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=Am8WsCkAAAAJ&hl=zh-CN&oi=ao">Zhuoran Jin</a><sup>1,2</sup>,</span>
@@ -126,7 +126,7 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup> School of Artificial Intelligence, University of Chinese Academy of Sciences,</span>
-            <span class="author-block"><sup>2</sup>Institute of Automation, Chinese Academy of Sciences</span>
+            <span class="author-block"><sup>2</sup> Institute of Automation, Chinese Academy of Sciences</span>
           </div>
 
           <div class="column has-text-centered">
@@ -177,7 +177,7 @@
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Data</span>
+                  <span>Dataset</span>
                   </a>
             </div>
 
@@ -272,17 +272,11 @@
         <div class="content has-text-justified">
           <p>
             Large language models (LLMs) inevitably memorize sensitive, copyrighted, and harmful knowledge from the training corpus; therefore, it is crucial to erase this knowledge from the models.
-Machine unlearning is a promising solution for efficiently removing specific knowledge by post hoc modifying models.
-          </p>
-          <p>
-            In this paper, we propose a <b>R</b>eal-<b>W</b>orld <b>K</b>nowledge <b>U</b>nlearning benchmark (<b>RWKU</b>) for LLM unlearning.
+Machine unlearning is a promising solution for efficiently removing specific knowledge by post hoc modifying models. In this paper, we propose a <b>R</b>eal-<b>W</b>orld <b>K</b>nowledge <b>U</b>nlearning benchmark (<b>RWKU</b>) for LLM unlearning.
 RWKU is designed based on the following three key factors: (1) For the <b>task setting</b>, we consider a more practical and challenging unlearning setting, where neither the forget corpus nor the retain corpus is accessible.
 (2) For the <b>knowledge source</b>, we choose 200 real-world famous people as the unlearning targets and show that such popular knowledge is widely present in various LLMs.
 (3) For the <b>evaluation framework</b>, we design the forget set and the retain set to evaluate the model’s capabilities across various real-world applications.
-Regarding the forget set, we provide four four membership inference attack (MIA) methods and nine kinds of adversarial attack probes to rigorously test unlearning efficacy.
-          </p>
-          <p>
-            Regarding the retain set, we assess locality and utility in terms of <b>neighbor perturbation</b>, <b>general ability</b>, <b>reasoning ability</b>, <b>truthfulness</b>, <b>factuality</b>, and <b>fluency</b>.
+Regarding the forget set, we provide four four membership inference attack (MIA) methods and nine kinds of adversarial attack probes to rigorously test unlearning efficacy. Regarding the retain set, we assess locality and utility in terms of <b>neighbor perturbation</b>, <b>general ability</b>, <b>reasoning ability</b>, <b>truthfulness</b>, <b>factuality</b>, and <b>fluency</b>.
 We conduct extensive experiments across two unlearning scenarios, two models and six baseline methods and obtain some meaningful findings.
           </p>
         </div>
