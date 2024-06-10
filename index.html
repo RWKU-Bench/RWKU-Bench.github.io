@@ -115,7 +115,7 @@
               <a href="http://www.ricardomartinbrualla.com">Kang Liu</a><sup>1,2</sup>
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Junzhao</a><sup>1,2</sup>
+              <a href="http://www.ricardomartinbrualla.com">Jun Zhao</a><sup>1,2</sup>
             </span>
           </div>
 
@@ -183,7 +183,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
@@ -255,7 +255,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -266,86 +266,88 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Large language models (LLMs) inevitably memorize sensitive, copyrighted, and harmful knowledge from the training corpus; therefore, it is crucial to erase this knowledge from the models.
+Machine unlearning is a promising solution for efficiently removing specific knowledge by post hoc modifying models.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            In this paper, we propose a <b>R</b>eal-<b>W</b>orld <b>K</b>nowledge <b>U</b>nlearning benchmark (<b>RWKU</b>) for LLM unlearning.
+RWKU is designed based on the following three key factors: (1) For the <b>task setting</b>, we consider a more practical and challenging unlearning setting, where neither the forget corpus nor the retain corpus is accessible.
+(2) For the <b>knowledge source</b>, we choose 200 real-world famous people as the unlearning targets and show that such popular knowledge is widely present in various LLMs.
+(3) For the <b>evaluation framework</b>, we design the forget set and the retain set to evaluate the model’s capabilities across various real-world applications.
+Regarding the forget set, we provide four four membership inference attack (MIA) methods and nine kinds of adversarial attack probes to rigorously test unlearning efficacy.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Regarding the retain set, we assess locality and utility in terms of <b>neighbor perturbation</b>, <b>general ability</b>, <b>reasoning ability</b>, <b>truthfulness</b>, <b>factuality</b>, and <b>fluency</b>.
+We conduct extensive experiments across two unlearning scenarios, two models and six baseline methods and obtain some meaningful findings.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+  <!-- Paper image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Evaluation Framework</h2>
+      <div class="publication-image">
+        <img src="./static/images/framework.jpg" alt="Description of the image">
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
+  <!--/ Paper image. -->
+
+  <!-- Paper image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3">Benchmark Comparison</h2>
+      <div class="content has-text-justified">
+        <p>
+          We provide a detailed comparison between these benchmarks and RWKU.
+        </p>
+      </div>
+      <div class="publication-image">
+        <img src="./static/images/comparison.jpg" alt="Description of the image">
+      </div>
+    </div>
+  </div>
+  <!--/ Paper image. -->
+
+
+
 </section>
 
 
+
 <section class="section">
+
+  
   <div class="container is-max-desktop">
-
+    <h2 class="title is-3">Data Collection and Construction</h2>
     <div class="columns is-centered">
-
+      
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+          <h2 class="title is-4">Knowledge Source</h2>
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
+            A general unlearning benchmark should be applicable to various mainstream open-source LLMs.
+This means ensuring that the knowledge to be forgotten is widely present in these models.
+Therefore, we choose famous people as the unlearning targets, requiring the unlearning method to erase factual knowledge about the targets from the model without affecting the neighbor knowledge.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
+          
         </div>
       </div>
       <!--/ Visual Effects. -->
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
+        <h2 class="title is-4">Probe Construction</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              To construct the forget probes, we first use GPT-4 to generate an excess of query-answer pairs related to the unlearning targets.
+Specifically, we collect relevant passages about each unlearning target from their Wikipedia pages and then prompt GPT-4 to generate query-answer pairs related to the targets based on these passages.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
           </div>
 
         </div>
@@ -353,65 +355,60 @@
     </div>
     <!--/ Matting. -->
 
+
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <!-- <h2 class="title is-3">Animation</h2> -->
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <h3 class="title is-4">Memorization Quantification</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            To further validate our collected unlearning targets, we quantify the memorization of various LLMs regarding knowledge from different sources. Higher EM and lower NLL indicate better memorization performance.
+            We choose four different knowledge sources.
           </p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
+        <div class="publication-image">
+          <img src="./static/images/Mem.jpg" alt="Description of the image">
         </div>
+
         <br/>
         <!--/ Interpolating. -->
 
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <!-- <h2 class="title is-3">Animation</h2> -->
         <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
+        <h3 class="title is-3">Experimental Results</h3>
         <div class="content has-text-justified">
           <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
+            Results of our main experiment on <b>LLaMA3-Instruct (8B)</b>.
           </p>
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
+          <div class="publication-image">
+            <img src="./static/images/result1.jpg" alt="Description of the image">
+          </div>
         </div>
         <!--/ Re-rendering. -->
+        <div class="content has-text-justified">
+          <p>
+            Results of our main experiment on <b>Phi-3 Mini-4K-Instruct (3.8B)</b>.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <div class="publication-image">
+            <img src="./static/images/result2.jpg" alt="Description of the image">
+          </div>
+        </div>
+
 
       </div>
     </div>
@@ -421,30 +418,80 @@
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
+        <h2 class="title is-3">Trade Off</h2>
 
         <div class="content has-text-justified">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
+            We show the trade-off between unlearning efficacy,
+locality and model utility in Figure below. (where trainable methods sample different training epochs and RepE samples different intervention weights).
+A good unlearning method should be a straight line down from the top right to the bottom right.
           </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
+          
+        </div>
+        <div class="publication-image">
+          <img src="./static/images/epoch.jpg" alt="Description of the image">
         </div>
       </div>
     </div>
     <!--/ Concurrent Work. -->
 
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Adversarial Attack Types</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Figure below illustrates the effectiveness of different types of adversarial attacks in inducing target knowledge from the model after forgetting.
+We can observe that prefix injection, affirmative suffix, multiple choice and reverse query attacks effectively elicit unlearned knowledge from the model.
+Because RT is fine-tuned on refusal data, it achieves the best unlearning efficiency under adversarial attacks.
+NPO also demonstrates the potential to resist adversarial attacks.
+          </p>
+          
+        </div>
+        <div class="publication-image">
+          <img src="./static/images/adversarial.jpg" alt="Description of the image">
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Batch-sample Unlearning</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We also explore a particularly challenging unlearning scenario, involving the forgetting of multiple targets simultaneously.
+As illustrated in Figures below, we conducted batch-unlearning experiments with target sizes of 10, 20, 30, 40, and 50.
+          </p>
+          
+        </div>
+        <div class="publication-image">
+          <img src="./static/images/batch-sample.jpg" alt="Description of the image">
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Partial-layer Unlearning</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We conduct an interesting experiment to verify that updating the parameters in which layers can achieve more effective unlearning.
+          </p>
+          
+        </div>
+        <div class="publication-image">
+          <img src="./static/images/partial-layer.jpg" alt="Description of the image">
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
   </div>
 </section>
 
@@ -452,12 +499,15 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>@misc{jin2024rwku,
+      title={RWKU: Benchmarking Real-World Knowledge Unlearning for Large Language Models}, 
+      author={Zhuoran Jin and Pengfei Cao and Chenhao Wang and Zhitao He and Hongbang Yuan and Jiachun Li and Yubo Chen  and Kang Liu and Jun Zhao},
+      year={2024},
+      eprint={2402.18154},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+</b></code></pre>
   </div>
 </section>
 
